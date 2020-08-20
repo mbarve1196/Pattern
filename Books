@@ -1,0 +1,32 @@
+create table books(id int,title varchar(250),year int, author varchar(250));
+create table reviewer(id int, name varchar(250));
+create table ratings(reviewer_id int, book_id int,rating int, rating_date date); 
+
+select * from books 
+id        title               year      author
+101 	A Tale Of Two Cities	  1859	Charies Dickens
+102  	The Lord Of The Rings	  1955	J. R. R. Tolkien
+103	  The Hobbit	            1937	NULL
+104	  The Little Prince     	1943	Antonie de Saint-Exupery
+105	  Book of Darkness	      1985	NULL
+
+select * from reviewer
+id     name
+15201	joe Martinez
+53202	Alice Lewis
+44203	John smith
+55452	John  
+
+select * from ratings
+reviewer_id    book_id rating  rating_date
+	15201	          101	     2	    2015-02-11
+ 	53202          	101      4	    2015-06-16
+	44203         	103	     4	    NULL
+	55452         	105	     5	    NULL
+  
+select distinct b.title from books b,ratings r where rating >2 order by title asc
+
+title
+A Tale Of Two Cities
+Book of Darkness
+The Hobbit
